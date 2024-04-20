@@ -47,9 +47,11 @@ public class Inventory {
         System.out.println(" - Price: $" + article.getPrice());
 
         if (article instanceof Phone) {
+            System.out.println(" - Type: Phone");
             System.out.println(" - Camera quality: " + ((Phone) article).getCameraQuality());
             System.out.println(" - Screen resolution: " + ((Phone) article).getScreenResolution());
         } else if (article instanceof Laptop) {
+            System.out.println(" - Type: Laptop");
             System.out.println(" - Operative system: " + ((Laptop) article).getOs());
             System.out.println(" - RAM capacity: " + ((Laptop) article).getRam());
         }
@@ -59,8 +61,9 @@ public class Inventory {
         int counter = 1;
 
         for(Article article : articlesList) {
-            System.out.println("N°: " + counter);
+            System.out.println("Article N°: " + counter);
             showArticleInformation(article);
+            System.out.println("------------------------\n");
             counter++;
         }
     }
@@ -70,5 +73,23 @@ public class Inventory {
 
         article.setDescription(newDescription);
         article.setPrice(newPrice);
+    }
+
+    private void updateArticle(Phone article, String newDescription, float newPrice, float newCameraQuality, float newScreenResolution) {
+        if (article == null) return;
+
+        updateArticle(article, newDescription, newPrice);
+
+        article.setCameraQuality(newCameraQuality);
+        article.setScreenResolution(newScreenResolution);
+    }
+
+    private void updateArticle(Laptop article, String newDescription, float newPrice, String newOs, int newRam) {
+        if (article == null) return;
+
+        updateArticle(article, newDescription, newPrice);
+
+        article.setOs(newOs);
+        article.setRam(newRam);
     }
 }
