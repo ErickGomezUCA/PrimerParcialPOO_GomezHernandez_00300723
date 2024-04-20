@@ -38,6 +38,7 @@ public class Main {
                     break;
 
                 case 3: // Show all articles
+                    showAllArticlesMenu();
                     break;
 
                 case 4: // Update article
@@ -132,6 +133,20 @@ public class Main {
         }
 
         inventory.showArticleInformation(article);
+    }
+
+    private static void showAllArticlesMenu() {
+        Article article;
+
+        System.out.println("Enter article name:");
+        article = promptArticle();
+
+        if (article == null) {
+            System.out.println("Article not found!");
+            return;
+        }
+
+        inventory.showAllArticles();
     }
 
     // Prompt methods
