@@ -57,6 +57,10 @@ public class Inventory {
         }
     }
 
-    // Preguntar eficacia de codigo aquí
-    public void updateArticle() {}
+    public void updateArticle(Article article, String newDescription, float newPrice) {
+        if (article == null) return;
+
+        article.setDescription(newDescription);
+        article.setPrice(newPrice);
+    }
 }

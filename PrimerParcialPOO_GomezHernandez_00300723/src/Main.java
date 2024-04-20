@@ -42,6 +42,7 @@ public class Main {
                     break;
 
                 case 4: // Update article
+                    updateArticleMenu();
                     break;
 
                 default:
@@ -147,6 +148,28 @@ public class Main {
         }
 
         inventory.showAllArticles();
+    }
+
+    private static void updateArticleMenu() {
+        Article article;
+        String description;
+        float price;
+
+        System.out.println("Enter article name:");
+        article = promptArticle();
+
+        if (article == null) {
+            System.out.println("Article not found!");
+            return;
+        }
+
+        System.out.println("Enter article description:");
+        description = promptString();
+
+        System.out.println("Enter article price: ");
+        price = promptFloat();
+
+        System.out.println("Article updated successfully!");
     }
 
     // Prompt methods
