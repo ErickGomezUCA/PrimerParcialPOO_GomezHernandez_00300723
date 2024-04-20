@@ -26,5 +26,37 @@ public class Inventory {
         this.articlesList = articlesList;
     }
 
-    
+    // Methods
+    public void addArticle(Article article) {
+        articlesList.add(article);
+    }
+
+    public Article searchArticle(String articleName) {
+        for (Article article : articlesList) {
+            if (articleName == article.getName())
+                return article;
+        }
+
+        return null;
+    }
+
+    public void showArticleInformation(Article article) {
+        System.out.println(" - Name: " + article.getName());
+        System.out.println(" - Model: " + article.getModel());
+        System.out.println(" - Description: " + article.getDescription());
+        System.out.println(" - Price: $" + article.getPrice());
+    }
+
+    public void showAllArticles() {
+        int counter = 1;
+
+        for(Article article : articlesList) {
+            System.out.println("N°: " + counter);
+            showArticleInformation(article);
+            counter++;
+        }
+    }
+
+    // Preguntar eficacia de codigo aquí
+    public void updateArticle() {}
 }
