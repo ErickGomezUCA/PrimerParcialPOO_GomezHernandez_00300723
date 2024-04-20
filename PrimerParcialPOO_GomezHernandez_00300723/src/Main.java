@@ -159,6 +159,8 @@ public class Main {
         System.out.println("Enter article price: ");
         price = promptFloat();
 
+        inventory.updateArticle(article, description, price);
+
         System.out.println("Article updated successfully!");
     }
 
