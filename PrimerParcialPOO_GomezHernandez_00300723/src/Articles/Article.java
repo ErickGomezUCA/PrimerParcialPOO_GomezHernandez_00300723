@@ -1,6 +1,8 @@
 package Articles;
 
-public abstract class Article {
+import Interfaces.*;
+
+public abstract class Article implements Priceable, Descriptable {
     // Attributes
     private String name;
     private String model;
@@ -40,19 +42,22 @@ public abstract class Article {
         this.model = model;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public float getPrice() {
-        return price;
-    }
 
     public void setPrice(float price) {
         this.price = price;
     }
+
+    // Implementations
+    public float getPrice() {
+        return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
 }
