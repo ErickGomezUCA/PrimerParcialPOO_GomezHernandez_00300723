@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    // Global inventory to be accessed to create, read and update menus
+    // Global inventory to be accessed on create, read and update menus
     private static Inventory inventory = new Inventory();
 
     public static void main(String[] args) {
@@ -18,6 +18,7 @@ public class Main {
     private static void showMainMenu() {
         int option;
 
+        // Show welcome text only on first load
         System.out.println("*--------------------------------------*\n\t\tWelcome to: ElectroMart!\n*--------------------------------------*\n");
 
         do {
