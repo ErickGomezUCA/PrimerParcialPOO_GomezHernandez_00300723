@@ -91,10 +91,10 @@ public class Main {
             switch(type) {
                 case 1: // Phone
                     System.out.println("Enter camera resolution (in Megapixels):");
-                    cameraQuality = promptFloat("");
+                    cameraQuality = promptFloat();
 
                     System.out.println("Enter phone screen resolution (in Inches):");
-                    screenResolution = promptFloat("");
+                    screenResolution = promptFloat();
 
                     phone = new Phone(name, model, description, price, cameraQuality, screenResolution);
 
@@ -171,10 +171,10 @@ public class Main {
 
         if (article instanceof Phone) {
             System.out.println("Enter new camera quality:");
-            cameraQuality = promptFloat("");
+            cameraQuality = promptFloat();
 
             System.out.println("Enter new screen resolution:");
-            screenResolution = promptFloat("");
+            screenResolution = promptFloat();
 
             inventory.updateArticle(article, description, price, cameraQuality, screenResolution);
         } else if (article instanceof Laptop) {
@@ -185,9 +185,8 @@ public class Main {
             ram = promptInt();
 
             inventory.updateArticle(article, description, price, os, ram);
-        }
-
-        inventory.updateArticle(article, description, price);
+        } else // General article modification
+            inventory.updateArticle(article, description, price);
 
         System.out.println("Article updated successfully!");
     }
@@ -252,6 +251,12 @@ public class Main {
         } while (flag);
 
         return input;
+    }
+
+    // Overloading float to set default empty parameter
+    private static float promptFloat() {
+        String emptySymbol = "";
+        return promptFloat(emptySymbol);
     }
 
     private static Article promptArticle() {
