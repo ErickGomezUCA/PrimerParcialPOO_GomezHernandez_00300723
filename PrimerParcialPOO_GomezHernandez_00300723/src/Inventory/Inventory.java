@@ -27,6 +27,10 @@ public class Inventory {
     }
 
     // Methods
+    public int getSize() {
+        return articlesList.size();
+    }
+
     public void addArticle(Article article) {
         articlesList.add(article);
     }

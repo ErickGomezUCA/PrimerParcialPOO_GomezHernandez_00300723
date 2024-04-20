@@ -18,8 +18,9 @@ public class Main {
     private static void showMainMenu() {
         int option;
 
+        System.out.println("*--------------------------------------*\n\t\tWelcome to: ElectroMart!\n*--------------------------------------*\n");
+
         do {
-            System.out.println("*--------------------------------------*\n\t\tWelcome to: ElectroMart!\n*--------------------------------------*\n");
             System.out.println("Enter an option:");
             System.out.println("[1] Add article to inventory\n[2] Display article information\n[3] Show all articles\n[4] Modify article information\n[0] Exit");
             option = promptInt();
@@ -138,7 +139,13 @@ public class Main {
         inventory.showArticleInformation(article);
     }
 
+    // Avoid printing empty inventory
     private static void showAllArticlesMenu() {
+        if (inventory.getSize() == 0) {
+            System.out.println("Inventory is empty...");
+            return;
+        }
+
         inventory.showAllArticles();
     }
 
