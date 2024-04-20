@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface ArticleInformation {
+public interface Informationable {
     public float getPrice();
     public String getDescription();
 }

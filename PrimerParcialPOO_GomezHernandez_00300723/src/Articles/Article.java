@@ -2,7 +2,7 @@ package Articles;
 
 import Interfaces.*;
 
-public abstract class Article implements ArticleInformation {
+public abstract class Article implements Informationable {
     // Attributes
     private String name;
     private String model;
