@@ -26,6 +26,7 @@ public class Main {
                     break;
 
                 case 1: // Create article
+                    showCreateArticleMenu();
                     break;
 
                 case 2: // Show article info
@@ -44,6 +45,12 @@ public class Main {
         } while (option != 0);
     }
 
+    private static void showCreateArticleMenu() {
+
+    }
+
+    // Prompt methods
+
     private static int promptInt() {
         Scanner scanner = new Scanner(System.in);
         int input = 0;
@@ -54,6 +61,46 @@ public class Main {
 
             try {
                 input = scanner.nextInt();
+                flag = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Invalid input. Expected an integer value.");
+                scanner.nextLine();
+            }
+        } while (flag);
+
+        return input;
+    }
+
+    private static String promptString() {
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        boolean flag = true;
+
+        do {
+            System.out.print("> ");
+
+            try {
+                input = scanner.nextLine();
+                flag = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Invalid input. Expected an integer value.");
+                scanner.nextLine();
+            }
+        } while (flag);
+
+        return input;
+    }
+
+    private static float promptFloat() {
+        Scanner scanner = new Scanner(System.in);
+        float input = 0;
+        boolean flag = true;
+
+        do {
+            System.out.print("> ");
+
+            try {
+                input = scanner.nextFloat();
                 flag = false;
             } catch (InputMismatchException e) {
                 System.out.println("Error: Invalid input. Expected an integer value.");
