@@ -17,12 +17,13 @@ public class Main {
     private static void showMainMenu() {
         int option;
 
-        System.out.println("Welcome to: ElectroMart!");
-
         do {
+            System.out.println("*--------------------------------------*\n\t\tWelcome to: ElectroMart!\n*--------------------------------------*\n");
             System.out.println("Enter an option:");
             System.out.println("[1] Add article to inventory\n[2] Display article information\n[3] Show all articles\n[4] Modify article information\n[0] Exit");
             option = promptInt();
+
+            System.out.println("\n");
 
             switch (option) {
                 case 0: // Exit
@@ -49,6 +50,8 @@ public class Main {
                     System.out.println("Error: Please enter a valid option");
                     break;
             }
+
+            System.out.println("\n");
         } while (option != 0);
     }
 
