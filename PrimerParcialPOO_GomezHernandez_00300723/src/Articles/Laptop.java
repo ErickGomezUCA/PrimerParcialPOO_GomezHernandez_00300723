@@ -14,15 +14,7 @@ public class Laptop extends Article {
         this.ram = ram;
     }
 
-    public Laptop(Article article, String os, int ram) {
-        super(article.getName(), article.getModel(), article.getDescription(), article.getPrice());
-        this.os = os;
-        this.ram = ram;
-    }
-
     // Getters and setters
-
-
     public String getOs() {
         return os;
     }
