@@ -40,6 +40,7 @@ public class Inventory {
         return null;
     }
 
+    // Display information for General Articles and also Phone and Laptop specific cases
     public void showArticleInformation(Article article) {
         System.out.println(" - Name: " + article.getName());
         System.out.println(" - Model: " + article.getModel());
@@ -57,6 +58,7 @@ public class Inventory {
         }
     }
 
+    // Avoid repetition of code related to printing an Article information
     public void showAllArticles() {
         int counter = 1;
 
@@ -68,6 +70,7 @@ public class Inventory {
         }
     }
 
+    // Overload updateArticle to set specific Phone and Laptop updating information cases
     public void updateArticle(Article article, String newDescription, float newPrice) {
         if (article == null) return;
 
