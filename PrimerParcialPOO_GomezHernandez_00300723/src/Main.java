@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
     private static Inventory inventory = new Inventory();
 
+    // Menus
     public static void main(String[] args) {
         showMainMenu();
     }
@@ -33,6 +34,7 @@ public class Main {
                     break;
 
                 case 2: // Show article info
+                    showArticleInfoMenu();
                     break;
 
                 case 3: // Show all articles
@@ -118,6 +120,11 @@ public class Main {
         System.out.println("Article created successfully!");
     }
 
+    private static void showArticleInfoMenu() {
+        Article articleFound;
+        System.out.println("Enter article name:");
+    }
+
     // Prompt methods
 
     private static int promptInt() {
@@ -178,5 +185,27 @@ public class Main {
         } while (flag);
 
         return input;
+    }
+
+    private static Article promptArticle() {
+        Scanner scanner = new Scanner(System.in);
+        String input = "";
+        Article article = null;
+        boolean flag = true;
+
+        do {
+            System.out.print("> ");
+
+            try {
+                input = scanner.nextLine();
+                article = inventory.searchArticle(input);
+                flag = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Invalid input. Expected an integer value.");
+                scanner.nextLine();
+            }
+        } while (flag);
+
+        return article;
     }
 }
