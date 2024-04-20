@@ -145,6 +145,14 @@ public class Main {
         String description;
         float price;
 
+        // Phone information
+        float cameraQuality;
+        float screenResolution;
+
+        // Laptop information
+        String os;
+        int ram;
+
         System.out.println("Enter article name:");
         article = promptArticle();
 
@@ -153,11 +161,31 @@ public class Main {
             return;
         }
 
-        System.out.println("Enter article description:");
+        System.out.println("Article " + article.getName() + " found. Updating information...");
+
+        System.out.println("Enter new description:");
         description = promptString();
 
-        System.out.println("Enter article price: ");
+        System.out.println("Enter new price: ");
         price = promptFloat("$");
+
+        if (article instanceof Phone) {
+            System.out.println("Enter new camera quality:");
+            cameraQuality = promptFloat("");
+
+            System.out.println("Enter new screen resolution:");
+            screenResolution = promptFloat("");
+
+            inventory.updateArticle(article, description, price, cameraQuality, screenResolution);
+        } else if (article instanceof Laptop) {
+            System.out.println("Enter new Operative system:");
+            os = promptString();
+
+            System.out.println("Enter new RAM capacity:");
+            ram = promptInt();
+
+            inventory.updateArticle(article, description, price, os, ram);
+        }
 
         inventory.updateArticle(article, description, price);
 

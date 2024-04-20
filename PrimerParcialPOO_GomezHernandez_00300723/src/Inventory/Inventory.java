@@ -75,21 +75,21 @@ public class Inventory {
         article.setPrice(newPrice);
     }
 
-    private void updateArticle(Phone article, String newDescription, float newPrice, float newCameraQuality, float newScreenResolution) {
+    public void updateArticle(Article article, String newDescription, float newPrice, float newCameraQuality, float newScreenResolution) {
         if (article == null) return;
 
         updateArticle(article, newDescription, newPrice);
 
-        article.setCameraQuality(newCameraQuality);
-        article.setScreenResolution(newScreenResolution);
+        ((Phone)article).setCameraQuality(newCameraQuality);
+        ((Phone)article).setScreenResolution(newScreenResolution);
     }
 
-    private void updateArticle(Laptop article, String newDescription, float newPrice, String newOs, int newRam) {
+    public void updateArticle(Article article, String newDescription, float newPrice, String newOs, int newRam) {
         if (article == null) return;
 
         updateArticle(article, newDescription, newPrice);
 
-        article.setOs(newOs);
-        article.setRam(newRam);
+        ((Laptop) article).setOs(newOs);
+        ((Laptop) article).setRam(newRam);
     }
 }
