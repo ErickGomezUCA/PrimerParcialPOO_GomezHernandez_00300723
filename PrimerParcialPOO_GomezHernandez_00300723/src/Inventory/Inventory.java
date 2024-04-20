@@ -1,7 +1,7 @@
 package Inventory;
 
 import java.util.ArrayList;
-import Articles.Article;
+import Articles.*;
 
 public class Inventory {
     private ArrayList<Article> articlesList;
@@ -45,6 +45,14 @@ public class Inventory {
         System.out.println(" - Model: " + article.getModel());
         System.out.println(" - Description: " + article.getDescription());
         System.out.println(" - Price: $" + article.getPrice());
+
+        if (article instanceof Phone) {
+            System.out.println(" - Camera quality: " + ((Phone) article).getCameraQuality());
+            System.out.println(" - Screen resolution: " + ((Phone) article).getScreenResolution());
+        } else if (article instanceof Laptop) {
+            System.out.println(" - Operative system: " + ((Laptop) article).getOs());
+            System.out.println(" - RAM capacity: " + ((Laptop) article).getRam());
+        }
     }
 
     public void showAllArticles() {
