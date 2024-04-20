@@ -82,7 +82,7 @@ public class Main {
         description = promptString();
 
         System.out.println("Enter article price:");
-        price = promptFloat();
+        price = promptFloat("$");
 
         do {
             System.out.println("Enter type of article:\n[1] Phone\n[2] Laptop");
@@ -91,10 +91,10 @@ public class Main {
             switch(type) {
                 case 1: // Phone
                     System.out.println("Enter camera resolution (in Megapixels):");
-                    cameraQuality = promptFloat();
+                    cameraQuality = promptFloat("");
 
                     System.out.println("Enter phone screen resolution (in Inches):");
-                    screenResolution = promptFloat();
+                    screenResolution = promptFloat("");
 
                     phone = new Phone(name, model, description, price, cameraQuality, screenResolution);
 
@@ -157,7 +157,7 @@ public class Main {
         description = promptString();
 
         System.out.println("Enter article price: ");
-        price = promptFloat();
+        price = promptFloat("$");
 
         inventory.updateArticle(article, description, price);
 
@@ -206,13 +206,13 @@ public class Main {
         return input;
     }
 
-    private static float promptFloat() {
+    private static float promptFloat(String currencySymbol) {
         Scanner scanner = new Scanner(System.in);
         float input = 0;
         boolean flag = true;
 
         do {
-            System.out.print("> ");
+            System.out.print("> " + currencySymbol);
 
             try {
                 input = scanner.nextFloat();
