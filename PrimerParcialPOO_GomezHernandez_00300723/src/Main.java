@@ -7,13 +7,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+    // Global inventory to be accessed to create, read and update menus
     private static Inventory inventory = new Inventory();
 
-    // Menus
     public static void main(String[] args) {
         showMainMenu();
     }
 
+    // Menus
     private static void showMainMenu() {
         int option;
 
@@ -46,7 +47,7 @@ public class Main {
                     updateArticleMenu();
                     break;
 
-                default:
+                default: // Invalid option
                     System.out.println("Error: Please enter a valid option");
                     break;
             }
@@ -72,8 +73,6 @@ public class Main {
         Laptop laptop;
         String os;
         int ram;
-
-        // Objects
 
         System.out.println("Enter article name:");
         name = promptString();
@@ -169,7 +168,7 @@ public class Main {
         System.out.println("Enter new description:");
         description = promptString();
 
-        System.out.println("Enter new price: ");
+        System.out.println("Enter new price:");
         price = promptFloat("$");
 
         if (article instanceof Phone) {
@@ -195,7 +194,8 @@ public class Main {
     }
 
     // Prompt methods
-
+    /* These methods help to handle possible user input errors.
+    *   They use a do-while and a boolean flag to repeat these processes every time an InputMismatchException is thrown */
     private static int promptInt() {
         Scanner scanner = new Scanner(System.in);
         int input = 0;
@@ -256,15 +256,16 @@ public class Main {
         return input;
     }
 
-    // Overloading float to set default empty parameter
+    // Overloading promptFloat method to set default an empty parameter to currencySymbol
     private static float promptFloat() {
         String emptySymbol = "";
         return promptFloat(emptySymbol);
     }
 
+    // To avoid repetition of code, prompt Article name for Display information and Update menus
     private static Article promptArticle() {
         Scanner scanner = new Scanner(System.in);
-        String input = "";
+        String input;
         Article article = null;
         boolean flag = true;
 

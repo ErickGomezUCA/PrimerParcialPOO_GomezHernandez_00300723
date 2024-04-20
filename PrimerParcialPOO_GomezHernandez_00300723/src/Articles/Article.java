@@ -51,7 +51,7 @@ public abstract class Article implements ArticleInformation {
         this.price = price;
     }
 
-    // Implementations
+    // Interface Implementations
     public float getPrice() {
         return price;
     }
