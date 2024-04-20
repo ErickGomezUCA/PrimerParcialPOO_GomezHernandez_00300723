@@ -1,7 +1,11 @@
+import Inventory.Inventory;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+    private static Inventory inventory = new Inventory();
+
     public static void main(String[] args) {
         showMainMenu();
     }
