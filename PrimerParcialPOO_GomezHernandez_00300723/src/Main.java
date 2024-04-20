@@ -121,8 +121,17 @@ public class Main {
     }
 
     private static void showArticleInfoMenu() {
-        Article articleFound;
+        Article article;
+
         System.out.println("Enter article name:");
+        article = promptArticle();
+
+        if (article == null) {
+            System.out.println("Article not found!");
+            return;
+        }
+
+        inventory.showArticleInformation(article);
     }
 
     // Prompt methods
