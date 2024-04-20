@@ -2,7 +2,7 @@ package Articles;
 
 import Interfaces.*;
 
-public abstract class Article implements Priceable, Descriptable {
+public abstract class Article implements ArticleInformation {
     // Attributes
     private String name;
     private String model;
