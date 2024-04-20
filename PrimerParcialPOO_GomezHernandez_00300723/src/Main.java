@@ -1,4 +1,7 @@
+import Articles.Article;
 import Inventory.Inventory;
+import Articles.Phone;
+import Articles.Laptop;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -46,7 +49,73 @@ public class Main {
     }
 
     private static void showCreateArticleMenu() {
+        // Article information
+        String name;
+        String model;
+        String description;
+        float price;
+        int type;
 
+        // Phone information
+        Phone phone;
+        float cameraQuality;
+        float screenResolution;
+
+        // Laptop information
+        Laptop laptop;
+        String os;
+        int ram;
+
+        // Objects
+
+        System.out.println("Enter article name:");
+        name = promptString();
+
+        System.out.println("Enter article model:");
+        model = promptString();
+
+        System.out.println("Enter article description:");
+        description = promptString();
+
+        System.out.println("Enter article price:");
+        price = promptFloat();
+
+        do {
+            System.out.println("Enter type of article:\n[1] Phone\n[2] Laptop");
+            type = promptInt();
+
+            switch(type) {
+                case 1: // Phone
+                    System.out.println("Enter camera resolution (in Megapixels):");
+                    cameraQuality = promptFloat();
+
+                    System.out.println("Enter phone screen resolution (in Inches):");
+                    screenResolution = promptFloat();
+
+                    phone = new Phone(name, model, description, price, cameraQuality, screenResolution);
+
+                    inventory.addArticle(phone);
+                    break;
+
+                case 2: // Laptop
+                    System.out.println("Enter laptop operative system:");
+                    os = promptString();
+
+                    System.out.println("Enter laptop RAM capacity (in GB):");
+                    ram = promptInt();
+
+                    laptop = new Laptop(name, model, description, price, os, ram);
+
+                    inventory.addArticle(laptop);
+                    break;
+
+                default:
+                    System.out.println("Error: Please enter a valid option");
+                    break;
+            }
+        } while (type < 1 || type > 2);
+
+        System.out.println("Article created successfully!");
     }
 
     // Prompt methods
