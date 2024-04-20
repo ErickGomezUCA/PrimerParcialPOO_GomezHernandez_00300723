@@ -33,7 +33,8 @@ public class Inventory {
 
     public Article searchArticle(String articleName) {
         for (Article article : articlesList) {
-            if (articleName == article.getName())
+            System.out.println(article.getName() + " = " + articleName);
+            if (articleName.equals(article.getName()))
                 return article;
         }
 

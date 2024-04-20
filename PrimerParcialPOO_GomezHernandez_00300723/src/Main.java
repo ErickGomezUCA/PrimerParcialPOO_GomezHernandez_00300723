@@ -137,16 +137,6 @@ public class Main {
     }
 
     private static void showAllArticlesMenu() {
-        Article article;
-
-        System.out.println("Enter article name:");
-        article = promptArticle();
-
-        if (article == null) {
-            System.out.println("Article not found!");
-            return;
-        }
-
         inventory.showAllArticles();
     }
 
@@ -206,7 +196,7 @@ public class Main {
                 input = scanner.nextLine();
                 flag = false;
             } catch (InputMismatchException e) {
-                System.out.println("Error: Invalid input. Expected an integer value.");
+                System.out.println("Error: Invalid input. Expected an String value.");
                 scanner.nextLine();
             }
         } while (flag);
@@ -226,7 +216,7 @@ public class Main {
                 input = scanner.nextFloat();
                 flag = false;
             } catch (InputMismatchException e) {
-                System.out.println("Error: Invalid input. Expected an integer value.");
+                System.out.println("Error: Invalid input. Expected an float value.");
                 scanner.nextLine();
             }
         } while (flag);
@@ -248,7 +238,7 @@ public class Main {
                 article = inventory.searchArticle(input);
                 flag = false;
             } catch (InputMismatchException e) {
-                System.out.println("Error: Invalid input. Expected an integer value.");
+                System.out.println("Error: Invalid input. Expected an String value.");
                 scanner.nextLine();
             }
         } while (flag);
